@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System;
 
-namespace CustomerEditor.Tools
+namespace Core.Tools
 {
     public class BaseNotificationClass : INotifyPropertyChanged
     {

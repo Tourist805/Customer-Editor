@@ -1,9 +1,9 @@
 ﻿<Application x:Class="CustomerEditor.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CustomerEditor"
+             xmlns:local="clr-namespace:Core.ViewModel;assembly=Core"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <local:CustomerEditorViewModel x:Key="CustomerEditorViewModel"/>
     </Application.Resources>
 </Application>
