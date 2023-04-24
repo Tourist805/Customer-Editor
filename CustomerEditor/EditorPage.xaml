@@ -3,26 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CustomerEditor"
+        xmlns:viewModels="clr-namespace:Core.ViewModel;assembly=Core"
+        d:DataContext="{d:DesignInstance viewModels:CustomerEditorViewModel}"
+        WindowStartupLocation="CenterOwner"
         mc:Ignorable="d"
-        Title="EditorPage" Height="450" Width="800">
-    <!--<Grid>
+        Title="EditorPage" Height="250" Width="300">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="225"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        --><!-- Welcome Label --><!--
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-               Content="Welcome to the blooed monitoring application. Please Enter patient User ID" Background="AliceBlue"/>
+               Content="Please enter the customer data to create the record" Background="AliceBlue"/>
 
-        --><!-- User Stats --><!--
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -39,34 +33,20 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
-            <TextBox x:Name="userId_txt" Grid.Row="0" Margin="10"/>
-            <Button Grid.Row="1" Grid.Column="0"
-                    Height="30" Width="100" Margin="10"
-                    Click="OnClick_SearchByID"
-                    Content="Search"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Name"/>
-            <TextBox x:Name="userName_txt" Grid.Row="2" Grid.Column="1" Text="{Binding CurrentCustomer.Name}"/>
+            <TextBox x:Name="name_txt" Grid.Row="2" Grid.Column="1" Width="150" Text="{Binding CurrentCustomer.Name}"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Age"/>
-            <TextBox x:Name="surname_txt" Grid.Row="3" Grid.Column="1" Text="{Binding CurrentCustomer.Age}"/>
+            <TextBox x:Name="age_txt" Grid.Row="3" Grid.Column="1" Text="{Binding CurrentCustomer.Age}"/>
             <Label Grid.Row="4" Grid.Column="0" Content="PostCode"/>
-            <TextBox x:Name = "age_txt" Grid.Row="4" Grid.Column="1" Text="{Binding CurrentCustomer.PostCode}"/>
+            <TextBox x:Name = "postcode_txt" Grid.Row="4" Grid.Column="1" Text="{Binding CurrentCustomer.PostCode}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Height"/>
-            <TextBox x:Name="email_txt" Grid.Row="5" Grid.Column="1" Height ="60" Width="120" 
-                     TextWrapping="Wrap"
-                     AcceptsReturn="True"
-                     VerticalScrollBarVisibility="Visible"
-                     IsReadOnly="True"
-                     Text="{Binding Path=CurrentUser.Email}"/>
+            <TextBox x:Name = "height_txt" Grid.Row="5" Grid.Column="1" Text="{Binding CurrentCustomer.PostCode}" Margin="0,0,0,30" Grid.RowSpan="2"/>
             <Button Grid.Row="6" Grid.Column="0" Height="30" Width="120"
-                    Click="OnClick_UpdateData"
-                    Content="Update Data"/>
-            <Button Grid.Row="7" Grid.Column="0" Height="30" Width="120"
-                    Click="OnClick_SearchSample"
-                    Content="Search Sample"/>
+                    Click="OnClick_CreateCustomer"
+                    Content="Create Customer"/>
 
         </Grid>
 
-        
-    </Grid>-->
+
+    </Grid>
 </Window>

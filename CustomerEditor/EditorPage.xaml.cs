@@ -20,10 +20,24 @@ namespace CustomerEditor
     /// </summary>
     public partial class EditorPage : Window
     {
-        private readonly CustomerEditorViewModel _context = new CustomerEditorViewModel();
+        public CustomerEditorViewModel _context => DataContext as CustomerEditorViewModel;
         public EditorPage()
         {
             InitializeComponent();
+            name_txt.Text = _context.CurrentCustomer.Name;
+            age_txt.Text = _context.CurrentCustomer.Age.ToString();
+            postcode_txt.Text = _context.CurrentCustomer.PostCode;
+            height_txt.Text = _context.CurrentCustomer.Height.ToString();
+        }
+
+        private void OnClick_CreateCustomer(object sender, RoutedEventArgs e)
+        {
+            _context.AddCustomer(name_txt.Text, age_txt.Text, postcode_txt.Text, height_txt.Text);
+        }
+
+        private void OnClick_EditCustomer(object sender, RoutedEventArgs e)
+        {
+            _context.UpdateCustomer(_context.CurrentCustomer.ID, name_txt.Text, age_txt.Text, postcode_txt.Text, height_txt.Text);
         }
     }
 }

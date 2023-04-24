@@ -3,33 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Core.ViewModel;assembly=Core"
         DataContext="{StaticResource CustomerEditorViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="225"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Welcome Label -->
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
-               Content="Welcome to the blooed monitoring application. Please Enter patient User ID" Background="AliceBlue"/>
+               Content="Welcome to the Customer Editor Application" Background="AliceBlue"/>
 
         <!-- Samples -->
-        <Grid Grid.Row="1" Grid.Column="1" Background="BurlyWood">
+        <Grid Grid.Row="1" Grid.Column="0" Background="BurlyWood">
             <DataGrid   
                       ItemsSource="{Binding Customers}"
                       SelectedItem="{Binding CurrentCustomer, Mode=TwoWay}"
-                      HeadersVisibility="Column">
+                      HeadersVisibility="Column" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Age" Binding="{Binding Age}"/>
+                    <DataGridTextColumn Header="PostCode" Binding="{Binding PostCode}"/>
+                    <DataGridTextColumn Header="Height" Binding="{Binding Height}"/>
+                </DataGrid.Columns>
             </DataGrid>
         </Grid>
+
+        <Button Grid.Row="2" Grid.Column="0" Height="30" Width="100" Content="Create Customer" Click="Onclick_AddingEditingForm"/>
+        <Button Grid.Row="3" Grid.Column="0" Height="30" Width="100" Content="Update Customer"/>
 
 
     </Grid>

@@ -27,5 +27,15 @@ namespace CustomerEditor
             InitializeComponent();
             DataContext = _context;
         }
+
+        private void Onclick_AddingEditingForm(object sender, RoutedEventArgs e)
+        {
+            EditorPage editorPage = new EditorPage();
+            editorPage.Owner = this;
+            editorPage.DataContext = _context;
+            editorPage.Show();
+        }
+
+       
     }
 }
